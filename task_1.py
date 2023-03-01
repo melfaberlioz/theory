@@ -1,5 +1,5 @@
 person = input("Введіть особу: ")
 
-gap = person.index(' ') + 1
-new_lastname = person[:gap] + person[gap:-5] + "."
-print(new_lastname)
+gap = person.index(' ')
+# new_lastname = person[gap+1] + ". " + person[:gap]
+print(f"{person[gap+1]}. {person[:gap]}")
