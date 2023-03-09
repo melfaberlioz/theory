@@ -1,17 +1,20 @@
 # Який час буде на годиннику (ГГ:ХХ),
 # якщо введено кількість хвилин, які пройшли з початку доби
 
-minutes_since_start = int(input("Enter minutes since the day has started: "))
-current_time = float(minutes_since_start / 60)
-# print(str(current_time))
-new_current_time = str(current_time)
-dot_index = new_current_time.index(".")
-hours_index = int(minutes_since_start[:dot_index])
-minutes_index = int(minutes_since_start[dot_index+1:])
+def repr_time(value):
+    if value < 10:
+        return '0' + value
+    return str(value)
 
-if hours_index < 10:
-    print(f"It's 0{hours_index} : {minutes_index}")
-elif hours_index <= 23:
-    print(f"It's {hours_index} : {minutes_index}")
-elif hours_index == 24:
-    print(f"It's 00 : {minutes_index}")
+minutes_since_start = int(input("Enter minutes since the day has started: "))
+hours = minutes_since_start // 60
+minutes = minutes_since_start % 60
+
+# repr_h = str(hours)
+# repr_m = str(minutes)
+# if hours < 10:
+#     repr_h  = '0' + repr_h
+# if minutes < 10:
+#     repr_m = '0' + repr_m
+
+print(f"{repr_time(hours)}:{repr_time(minutes)}")
